@@ -1,0 +1,60 @@
+File Encryption and Decryption Web App
+
+This is a Flask-based web application that allows users to upload a file and either encrypt or decrypt it using Fernet symmetric encryption from the `cryptography` library.
+
+Features
+
+- Upload any file for encryption or decryption.
+- Encrypt files using a newly generated Fernet key.
+- Decrypt files using the saved key (`Secret.key`).
+- Download the processed file (encrypted or decrypted).
+- Flash messages for feedback.
+- Secure file handling with `secure_filename`.
+
+---
+
+Working
+
+1. Upload a File
+The user selects a file and chooses either `Encrypt` or `Decrypt`.
+
+2. Key Handling
+- On encryption, a new Fernet key is generated and saved to `Secret.key`.
+- On decryption, the existing `Secret.key` is loaded for the decryption process.
+
+3. File Processing
+- The file is saved in the `uploads/` directory.
+- Encryption adds a `.enc` extension.
+- Decryption removes the `.enc` extension and saves the original file.
+
+4. Download Result
+After processing, a download link is displayed.
+
+---
+
+Flask App Setup 
+
+1. App Initialization
+   - `app = Flask(__name__)`
+   - Upload folder and secret key are configured.
+
+2. Upload Directory Handling
+   - Checks if the `uploads/` directory exists, creates it if not.
+
+3. Key Management
+   - `generate_key()`: Generates and saves the key.
+   - `load_key()`: Loads the key from file.
+
+4. Encryption / Decryption Logic
+   - `encrypt()`: Encrypts file content and saves it with `.enc`.
+   - `decrypt()`: Decrypts `.enc` file to its original content.
+
+5. Routes
+   - `/`: Home page to upload and process files.
+   - `/download/<filename>`: Download processed files.
+
+6. Flash Messaging
+   - Shows success or error messages based on actions taken.
+
+
+
