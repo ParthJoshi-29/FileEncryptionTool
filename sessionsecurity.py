@@ -1,1 +1,0 @@
-app.secret_key = 'supersecretkey'
