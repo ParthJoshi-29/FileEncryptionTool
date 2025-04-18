@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Encrypt & Decrypt Files</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>File Encryptor / Decryptor</h1>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %} {% endwith %}
+      <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required />
+        <div class="buttons">
+          <button name="action" value="encrypt">Encrypt</button>
+          <button name="action" value="decrypt">Decrypt</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
