@@ -43,6 +43,6 @@ Tested encryption/decryption workflows with various edge cases and handled error
 
 ## 👨‍💻 Tester
 
-**Name:** Soham Bodh  
+**Name:** Soham Bodhani  
 **Jira Issue:** FIL-11  
 **Date:** April 17, 2025
